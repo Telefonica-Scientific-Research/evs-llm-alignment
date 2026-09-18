@@ -32,7 +32,7 @@ A low dependency and really simple to start project template for Python Projects
 - ✅ Code linting using [flake8](https://flake8.pycqa.org/en/latest/)
 - 📊 Code coverage reports using [codecov](https://about.codecov.io/sign-up/)
 - 🛳️ Automatic release to [PyPI](https://pypi.org) using [twine](https://twine.readthedocs.io/en/latest/) and github actions.
-- 🎯 Entry points to execute your program using `python -m <project_name>` or `$ project_name` with basic CLI argument parsing.
+- 🎯 Entry points to execute your program using `python -m <evs_llm_alignment>` or `$ evs_llm_alignment` with basic CLI argument parsing.
 - 🔄 Continuous integration using [Github Actions](.github/workflows/) with jobs to lint, test and release your project on Linux, Mac and Windows environments.
 
 ### Repository quality
@@ -45,10 +45,10 @@ A low dependency and really simple to start project template for Python Projects
 <!--  DELETE THE LINES ABOVE THIS AND WRITE YOUR PROJECT README BELOW -->
 
 ---
-# project_name
+# evs_llm_alignment
 
-[![codecov](https://codecov.io/gh/author_name/project_urlname/branch/main/graph/badge.svg?token=project_urlname_token_here)](https://codecov.io/gh/author_name/project_urlname)
-[![CI](https://github.com/author_name/project_urlname/actions/workflows/main.yml/badge.svg)](https://github.com/author_name/project_urlname/actions/workflows/main.yml)
+[![codecov](https://codecov.io/gh/Telefonica-Scientific-Research/evs-llm-alignment/branch/main/graph/badge.svg?token=evs-llm-alignment_token_here)](https://codecov.io/gh/Telefonica-Scientific-Research/evs-llm-alignment)
+[![CI](https://github.com/Telefonica-Scientific-Research/evs-llm-alignment/actions/workflows/main.yml/badge.svg)](https://github.com/Telefonica-Scientific-Research/evs-llm-alignment/actions/workflows/main.yml)
 
 Brief abstract of the research
 [_"Title"_](https://journal.net/forum?id=Title)
@@ -102,23 +102,23 @@ Main Results
 ### Install it from PyPI
 
 ```bash
-pip install project_name
+pip install evs_llm_alignment
 ```
 
 ### Usage
 
 ```py
-from project_name import BaseClass
-from project_name import base_function
+from evs_llm_alignment import BaseClass
+from evs_llm_alignment import base_function
 
 BaseClass().base_method()
 base_function()
 ```
 
 ```bash
-$ python -m project_name
+$ python -m evs_llm_alignment
 #or
-$ project_name
+$ evs_llm_alignment
 ```
 
 
