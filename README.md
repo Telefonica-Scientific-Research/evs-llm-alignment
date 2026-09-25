@@ -211,7 +211,7 @@ If you use this codebase, please cite the associated paper. Replace the placehol
 ```bibtex
 @inproceedings{solansnoguero2026population,
   title     = {Population-Grounded Evaluation of Multilingual LLM Alignment with European Societal Values},
-  author    = {Solans Noguero, David and Luque Serrano, Jordi and Sant Savall, Aleix},
+  author    = {Solans Noguero, David and Luque, Jordi and Sant, Aleix},
   booktitle = {Proceedings of the PANDORA Workshop at EMNLP 2026},
   year      = {2026},
   url       = {TODO}
