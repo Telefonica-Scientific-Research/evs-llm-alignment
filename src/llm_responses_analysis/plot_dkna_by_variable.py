@@ -23,7 +23,8 @@ import scienceplots  # noqa: F401
 from pathlib import Path
 
 _HERE = Path(__file__).resolve().parent
-_ROOT = _HERE.parents[1]  # EUValues/
+_ROOT = _HERE.parents[1]   # repository root
+_DATA = _ROOT / "evs_llm_alignment"   # package directory holding survey data
 
 sys.path.insert(0, str(_ROOT / "src"))
 from survey_variables import PCA_SELECTED_VARS  # noqa: E402
@@ -37,11 +38,11 @@ from scale_metadata import (  # noqa: E402
 )
 
 # Human responses always come from the same location (not from scale_control)
-HUMAN_LLM_DIR = Path(os.getenv("HUMAN_LLM_DIR", str(_ROOT / "Surveys_responses" / "Human_responses")))
-DEFAULT_LLM_DIR    = Path(os.getenv("LLM_DIR", str(_ROOT / "Surveys_responses")))
-DEFAULT_HUMAN_CSV  = HUMAN_LLM_DIR / "moral_values_survey_with_languages_v2.csv"
-DEFAULT_SCALE_CATALOG = _ROOT / "Surveys" / "Survey_metadata" / "question_scale_catalog.csv"
-DEFAULT_SCALES_DIR = _ROOT / "Surveys_parsed"
+HUMAN_LLM_DIR = Path(os.getenv("HUMAN_LLM_DIR", str(_DATA / "Surveys_responses" / "Human_responses")))
+DEFAULT_LLM_DIR    = Path(os.getenv("LLM_DIR", str(_DATA / "Surveys_responses")))
+DEFAULT_HUMAN_CSV  = HUMAN_LLM_DIR / "moral_values_survey_with_languages.csv"
+DEFAULT_SCALE_CATALOG = _DATA / "Surveys" / "Survey_metadata" / "question_scale_catalog.csv"
+DEFAULT_SCALES_DIR = _DATA / "Surveys_parsed"
 DEFAULT_OUTPUT_DIR = _HERE.parent / "data_preprocessing" / "output"
 
 def _load_norm_params(human_csv: Path, scale_metadata: dict | None = None) -> dict:
