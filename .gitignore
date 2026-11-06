@@ -132,3 +132,7 @@ dmypy.json
 .github/templates/*
 
 .idea/*
+
+# Generated analysis outputs (figures, tables, intermediate CSVs) written by
+# run_analysis.sh and the analysis scripts under src/
+src/data_preprocessing/output/
