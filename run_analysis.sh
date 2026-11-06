@@ -29,9 +29,11 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VENV="${VENV:-${SCRIPT_DIR}/../.venv}"
 PYTHON="${VENV}/bin/python"
 OUTPUT_DIR="${SCRIPT_DIR}/src/data_preprocessing/output"
-HUMAN_SURVEY_CSV="${HUMAN_SURVEY_CSV:-${SCRIPT_DIR}/Surveys_responses/Human_responses/moral_values_survey_with_languages.csv}"
-TOPICS_CSV="${TOPICS_CSV:-${SCRIPT_DIR}/Surveys/Survey_metadata/questions_topic_matching.csv}"
-LLM_DIR="${LLM_DIR:-${SCRIPT_DIR}/Surveys_responses}"
+# Survey data and metadata live under the Python package directory.
+DATA_DIR="${DATA_DIR:-${SCRIPT_DIR}/evs_llm_alignment}"
+HUMAN_SURVEY_CSV="${HUMAN_SURVEY_CSV:-${DATA_DIR}/Surveys_responses/Human_responses/moral_values_survey_with_languages.csv}"
+TOPICS_CSV="${TOPICS_CSV:-${DATA_DIR}/Surveys/Survey_metadata/questions_topic_matching.csv}"
+LLM_DIR="${LLM_DIR:-${DATA_DIR}/Surveys_responses}"
 
 die() {
   echo "ERROR: $*" >&2
