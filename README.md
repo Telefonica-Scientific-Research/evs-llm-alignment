@@ -164,6 +164,46 @@ python src/llm_responses_analysis/llm_responses_analysis.py \
   --countries es fr de it
 ```
 
+## Models Evaluated
+
+All models were served with [llama.cpp](https://github.com/ggml-org/llama.cpp) in
+greedy-decoding mode (`--temp 0`) from GGUF checkpoints. The table below lists the
+exact HuggingFace GGUF repository and quantisation used for each of the 30 models.
+Each link and filename was verified against the repository's file listing.
+
+| Model (alias) | HuggingFace GGUF repository | Quant | File |
+|---|---|---|---|
+| `minimistral3-8B` | [mistralai/Ministral-3-8B-Instruct-2512-GGUF](https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512-GGUF) | Q8_0 | `Ministral-3-8B-Instruct-2512-Q8_0.gguf` |
+| `minimistral3-14B` | [mistralai/Ministral-3-14B-Instruct-2512-GGUF](https://huggingface.co/mistralai/Ministral-3-14B-Instruct-2512-GGUF) | Q8_0 | `Ministral-3-14B-Instruct-2512-Q8_0.gguf` |
+| `apertus-8B` | [bartowski/swiss-ai_Apertus-8B-Instruct-2509-GGUF](https://huggingface.co/bartowski/swiss-ai_Apertus-8B-Instruct-2509-GGUF) | Q8_0 | `swiss-ai_Apertus-8B-Instruct-2509-Q8_0.gguf` |
+| `apertus-70B` | [unsloth/Apertus-70B-Instruct-2509-GGUF](https://huggingface.co/unsloth/Apertus-70B-Instruct-2509-GGUF) | Q4_0 | `Apertus-70B-Instruct-2509-Q4_0.gguf` |
+| `eurollm-9B` | [bartowski/EuroLLM-9B-Instruct-GGUF](https://huggingface.co/bartowski/EuroLLM-9B-Instruct-GGUF) | Q8_0 | `EuroLLM-9B-Instruct-Q8_0.gguf` |
+| `occiglot` | [mayflowergmbh/occiglot-7b-eu5-instruct-GGUF](https://huggingface.co/mayflowergmbh/occiglot-7b-eu5-instruct-GGUF) | Q8_0 | `occiglot-7b-eu5-instruct.Q8_0.gguf` |
+| `salamandra` | [RichardErkhov/BSC-LT_-_salamandra-7b-instruct-gguf](https://huggingface.co/RichardErkhov/BSC-LT_-_salamandra-7b-instruct-gguf) | Q8_0 | `salamandra-7b-instruct.Q8_0.gguf` |
+| `alia-40B` | [BSC-LT/ALIA-40b-instruct-2605-GGUF](https://huggingface.co/BSC-LT/ALIA-40b-instruct-2605-GGUF) | Q8_0 | `ALIA-40b-instruct-2605-Q8_0.gguf` |
+| `tiny-aya-global` | [CohereLabs/tiny-aya-global-GGUF](https://huggingface.co/CohereLabs/tiny-aya-global-GGUF) | F16 | `tiny-aya-global-f16.gguf` |
+| `aya-23-35B` | [bartowski/aya-23-35B-GGUF](https://huggingface.co/bartowski/aya-23-35B-GGUF) | Q8_0 | `aya-23-35B-Q8_0.gguf` |
+| `phi4-mini` | [unsloth/Phi-4-mini-instruct-GGUF](https://huggingface.co/unsloth/Phi-4-mini-instruct-GGUF) | BF16 | `Phi-4-mini-instruct.BF16.gguf` |
+| `villanova-2B` | [VillanovaAI/Villanova-2B-2603-GGUF](https://huggingface.co/VillanovaAI/Villanova-2B-2603-GGUF) | BF16 | `Villanova-2B-2603-BF16.gguf` |
+| `smollm3-3B` | [unsloth/SmolLM3-3B-GGUF](https://huggingface.co/unsloth/SmolLM3-3B-GGUF) | BF16 | `SmolLM3-3B-BF16.gguf` |
+| `gemma3-27b` | [unsloth/gemma-3-27b-it-GGUF](https://huggingface.co/unsloth/gemma-3-27b-it-GGUF) | UD-Q8_K_XL | `gemma-3-27b-it-UD-Q8_K_XL.gguf` |
+| `gemma4` | [unsloth/gemma-4-31B-it-GGUF](https://huggingface.co/unsloth/gemma-4-31B-it-GGUF) | UD-Q8_K_XL | `gemma-4-31B-it-UD-Q8_K_XL.gguf` |
+| `gemma4-E4B` | [unsloth/gemma-4-E4B-it-GGUF](https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF) | BF16 | `gemma-4-E4B-it-BF16.gguf` |
+| `gemma4-E2B` | [unsloth/gemma-4-E2B-it-GGUF](https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF) | BF16 | `gemma-4-E2B-it-BF16.gguf` |
+| `gemma4-12B` | [unsloth/gemma-4-12B-it-qat-GGUF](https://huggingface.co/unsloth/gemma-4-12B-it-qat-GGUF) | UD-Q4_K_XL (QAT) | `gemma-4-12B-it-qat-UD-Q4_K_XL.gguf` |
+| `qwen3-30B-A3B` | [unsloth/Qwen3-30B-A3B-Instruct-2507-GGUF](https://huggingface.co/unsloth/Qwen3-30B-A3B-Instruct-2507-GGUF) | UD-Q8_K_XL | `Qwen3-30B-A3B-Instruct-2507-UD-Q8_K_XL.gguf` |
+| `qwen3.6` | [unsloth/Qwen3.6-35B-A3B-GGUF](https://huggingface.co/unsloth/Qwen3.6-35B-A3B-GGUF) | UD-Q8_K_XL | `Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf` |
+| `qwen3.6-27B` | [unsloth/Qwen3.6-27B-GGUF](https://huggingface.co/unsloth/Qwen3.6-27B-GGUF) | UD-Q8_K_XL | `Qwen3.6-27B-UD-Q8_K_XL.gguf` |
+| `qwen3-14B` | [unsloth/Qwen3-14B-GGUF](https://huggingface.co/unsloth/Qwen3-14B-GGUF) | BF16 | `Qwen3-14B-BF16.gguf` |
+| `qwen3.5-4B` | [unsloth/Qwen3.5-4B-GGUF](https://huggingface.co/unsloth/Qwen3.5-4B-GGUF) | BF16 | `Qwen3.5-4B-BF16.gguf` |
+| `qwen3.5-2B` | [unsloth/Qwen3.5-2B-GGUF](https://huggingface.co/unsloth/Qwen3.5-2B-GGUF) | BF16 | `Qwen3.5-2B-BF16.gguf` |
+| `qwen3.5-9B` | [unsloth/Qwen3.5-9B-GGUF](https://huggingface.co/unsloth/Qwen3.5-9B-GGUF) | BF16 | `Qwen3.5-9B-BF16.gguf` |
+| `deepseek-r1-qwen3-8B` | [unsloth/DeepSeek-R1-0528-Qwen3-8B-GGUF](https://huggingface.co/unsloth/DeepSeek-R1-0528-Qwen3-8B-GGUF) | BF16 | `DeepSeek-R1-0528-Qwen3-8B-BF16.gguf` |
+| `llama3.3-70B` | [unsloth/Llama-3.3-70B-Instruct-GGUF](https://huggingface.co/unsloth/Llama-3.3-70B-Instruct-GGUF) | Q4_K_M | `Llama-3.3-70B-Instruct-Q4_K_M.gguf` |
+| `llama3.2-1B` | [bartowski/Llama-3.2-1B-Instruct-GGUF](https://huggingface.co/bartowski/Llama-3.2-1B-Instruct-GGUF) | F16 | `Llama-3.2-1B-Instruct-f16.gguf` |
+| `llama3.2-3B` | [bartowski/Llama-3.2-3B-Instruct-GGUF](https://huggingface.co/bartowski/Llama-3.2-3B-Instruct-GGUF) | F16 | `Llama-3.2-3B-Instruct-f16.gguf` |
+| `deepseek-r1-llama-70B` | [unsloth/DeepSeek-R1-Distill-Llama-70B-GGUF](https://huggingface.co/unsloth/DeepSeek-R1-Distill-Llama-70B-GGUF) | UD-Q4_K_XL | `DeepSeek-R1-Distill-Llama-70B-UD-Q4_K_XL.gguf` |
+
 ## Methodological Scope
 
 The analysis is organised around three stages:
