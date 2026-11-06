@@ -42,15 +42,16 @@ from scale_metadata import load_canonical_scale_metadata  # noqa: E402
 
 # ── Paths (defaults) ─────────────────────────────────────────────────────────
 _HERE = Path(__file__).resolve().parent
-_ROOT = _HERE.parents[1]   # EUValues/
+_ROOT = _HERE.parents[1]   # repository root
+_DATA = _ROOT / "evs_llm_alignment"   # package directory holding survey data
 
-DEFAULT_LLM_DIR     = Path(os.getenv("LLM_DIR", str(_ROOT / "Surveys_responses_scale_control")))
-DEFAULT_HUMAN_CSV   = _ROOT / "Surveys_responses" / "Human_responses" / \
-                      "moral_values_survey_with_languages_v2.csv"
-DEFAULT_TOPICS_CSV  = _ROOT / "Surveys" / "Survey_metadata" / \
-                      "questions_topic_matching_v3.csv"
-DEFAULT_SCALE_CATALOG = _ROOT / "Surveys" / "Survey_metadata" / "question_scale_catalog.csv"
-DEFAULT_SCALES_DIR  = _ROOT / "Surveys_parsed"
+DEFAULT_LLM_DIR     = Path(os.getenv("LLM_DIR", str(_DATA / "Surveys_responses")))
+DEFAULT_HUMAN_CSV   = _DATA / "Surveys_responses" / "Human_responses" / \
+                      "moral_values_survey_with_languages.csv"
+DEFAULT_TOPICS_CSV  = _DATA / "Surveys" / "Survey_metadata" / \
+                      "questions_topic_matching.csv"
+DEFAULT_SCALE_CATALOG = _DATA / "Surveys" / "Survey_metadata" / "question_scale_catalog.csv"
+DEFAULT_SCALES_DIR  = _DATA / "Surveys_parsed"
 DEFAULT_OUTPUT_DIR  = _HERE.parent / "data_preprocessing" / "output"
 
 # PCA_SELECTED_VARS and normalize_variable imported from EUValues/src/survey_variables.py
