@@ -37,10 +37,6 @@ setup(
     long_description=read("README.md"),
     long_description_content_type="text/markdown",
     author="Telefonica-Scientific-Research",
-    packages=find_packages(exclude=["tests", ".github"]),
+    packages=find_packages(exclude=[]),
     install_requires=read_requirements("requirements.txt"),
-    entry_points={
-        "console_scripts": ["evs_llm_alignment = evs_llm_alignment.__main__:main"]
-    },
-    extras_require={"test": read_requirements("requirements-test.txt")},
 )

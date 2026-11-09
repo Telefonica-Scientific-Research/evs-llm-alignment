@@ -1,8 +1,5 @@
 # EVS-LLM Alignment
 
-[![CI](https://github.com/Telefonica-Scientific-Research/evs-llm-alignment/actions/workflows/main.yml/badge.svg)](https://github.com/Telefonica-Scientific-Research/evs-llm-alignment/actions/workflows/main.yml)
-[![codecov](https://codecov.io/gh/Telefonica-Scientific-Research/evs-llm-alignment/branch/main/graph/badge.svg)](https://codecov.io/gh/Telefonica-Scientific-Research/evs-llm-alignment)
-
 Population-grounded evaluation of multilingual Large Language Model (LLM) alignment using the European Values Survey (EVS).
 
 This repository contains the code associated with the paper **“Population-Grounded Evaluation of Multilingual LLM Alignment with European Societal Values”**, published at the **PANDORA Workshop @ EMNLP 2026**.
@@ -35,22 +32,27 @@ The repository supports the main stages of the paper's experimental pipeline:
 
 ```text
 .
-├── prompts/                       # Language- and model-specific prompt templates
-├── Surveys/                       # EVS questionnaires and survey metadata
-├── Surveys_parsed/                # Structured and standardised questionnaires
-├── Surveys_responses/             # Human and LLM response data
+├── evs_llm_alignment/             # Python package and all data
+│   ├── Surveys/                   # EVS questionnaires and survey metadata
+│   ├── Surveys_parsed/            # Structured and standardised questionnaires
+│   └── Surveys_responses/         # Human and LLM response data
 ├── src/
 │   ├── data_preprocessing/        # Human-data preparation and analysis
 │   ├── llm_responses_analysis/    # LLM analysis and alignment metrics
 │   ├── extract_survey_csv_from_pdf.py
-│   └── query_survey_llm.py
-├── tests/                         # Automated tests
+│   ├── query_survey_llm.py
+│   └── survey_variables.py
 ├── run_analysis.sh                # End-to-end analysis entry point
-├── requirements.txt
-├── CONTRIBUTING.md
+├── requirements.txt               # Runtime dependencies
 ├── LICENSE
 └── README.md
 ```
+
+Language- and model-specific Jinja2 prompt templates (`prompts/`) are not
+included in this repository. `src/query_survey_llm.py` expects them at
+`./prompts/survey_prompt/survey_prompts_final_answer_<model>.jinja2`, so they
+must be provided to re-run the querying stage. The analysis pipeline does not
+need them because the LLM responses are already shipped.
 
 The exact layout may evolve as the former research codebase is cleaned and migrated into this repository.
 
@@ -98,8 +100,8 @@ Use the survey-querying entry point to administer EVS items to one or more model
 python src/query_survey_llm.py \
   --languages es it en_gb \
   --models apertus gemma27b qwen3_30b \
-  --csv-dir ./Surveys_parsed \
-  --output-dir ./Surveys_responses
+  --csv-dir ./evs_llm_alignment/Surveys_parsed \
+  --output-dir ./evs_llm_alignment/Surveys_responses
 ```
 
 The querying component supports configurable server, port, timeout, language, model, input-directory, and output-directory arguments. Run the following command for the options available in the current version:
@@ -234,15 +236,9 @@ The repository may contain derived metadata, parsing utilities, configuration fi
 - Analysis scripts use a non-interactive Matplotlib backend and can run in headless environments.
 - Generated figures and tables are written to the output locations configured by the corresponding scripts.
 
-## Testing and Code Quality
+## Reproducibility Checks
 
-Run the test suite with:
-
-```bash
-pytest
-```
-
-Depending on the final project configuration, formatting, linting, and additional quality checks may also be available through the included `Makefile` and continuous-integration workflow.
+The repository has no automated test suite or CI workflow. Consistency of the analysis outputs can be checked with `bash run_analysis.sh --sanity-check`.
 
 ## Citation
 
@@ -264,7 +260,7 @@ This project is licensed under the terms specified in [LICENSE](LICENSE).
 
 ## Contributing
 
-Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
+Contributions are welcome. Please open an issue or pull request.
 
 ## Support
 
