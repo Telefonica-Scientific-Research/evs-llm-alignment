@@ -215,7 +215,8 @@ if [[ $RUN_LLM -eq 1 ]]; then
     require_nonempty_file "${OUTPUT_DIR}/llm_pca_english_vs_non_english_mean_2col.png"
     require_nonempty_file "${OUTPUT_DIR}/llm_pca_human_vs_llm_english_multilingual_1col.png"
     require_nonempty_file "${OUTPUT_DIR}/llm_pca_human_vs_llm_english_multilingual_2col.png"
-    require_nonempty_file "${OUTPUT_DIR}/llm_radar_vs_human.png"
+    require_nonempty_file "${OUTPUT_DIR}/human_topics_radar.png"
+    require_nonempty_file "${OUTPUT_DIR}/llm_topics_radar.png"
     require_nonempty_file "${OUTPUT_DIR}/ks_alignment_by_language_family.png"
 
     "$PYTHON" - <<PY
